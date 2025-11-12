@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Board App — User Survey</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      max-width: 800px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #111;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    textarea {
+      min-height: 100px;
+    }
+    .checkbox-group, .radio-group {
+      margin-bottom: 10px;
+    }
+    .checkbox-group label,
+    .radio-group label {
+      font-weight: normal;
+      margin-right: 15px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .optional {
+      font-weight: normal;
+      font-style: italic;
+      color: #666;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .small-note {
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>User Survey – Visual Project Board App</h1>
+  <p>Please complete this short survey to help us build a tool that fits your brainstorming & organizing needs.</p>
+
+  <form id="surveyForm">
+
+    <div class="section">
+      <label for="name">Name <span class="optional">(optional)</span></label>
+      <input type="text" id="name" name="name">
+
+      <label for="email">Email <span class="optional">(optional – if you’d like results or follow-up)</span></label>
+      <input type="email" id="email" name="email">
+    </div>
+
+    <div class="section">
+      <h2>1. About Your Projects</h2>
+      <label>What kinds of projects do you currently do (or plan to do)? <span class="small-note">(Select all that apply)</span></label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="projectTypes" value="Work / Professional"> Work / Professional projects</label>
+        <label><input type="checkbox" name="projectTypes" value="Personal / Lifestyle"> Personal / Lifestyle (home, travel, hobbies)</label>
+        <label><input type="checkbox" name="projectTypes" value="Creative (art, design)"> Creative (art, design)</label>
+        <label><input type="checkbox" name="projectTypes" value="Education / Learning"> Education / Learning</label>
+        <label><input type="checkbox" name="projectTypes" value="Other"> Other</label>
+      </div>
+
+      <label for="projectTypesOther" class="optional">If “Other”, please specify:</label>
+      <input type="text" id="projectTypesOther" name="projectTypesOther">
+    </div>
+
+    <div class="section">
+      <h2>2. Current Tools & Workflow</h2>
+      <label for="currentTools">What tools do you currently use for brainstorming, organizing or managing projects?</label>
+      <textarea id="currentTools" name="currentTools" placeholder="e.g. Miro, Trello, paper notebooks, Google Docs…"></textarea>
+
+      <label>What are your biggest frustrations with your current tools or workflow?</label>
+      <textarea id="frustrations" name="frustrations" placeholder="Please describe…"></textarea>
+    </div>
+
+    <div class="section">
+      <h2>3. Concept & Features</h2>
+      <label>How appealing is the idea of a single visual canvas (board) where you can freely add notes, links, images, sketches, etc. to organise a project?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="canvasAppeal" value="Very appealing"> Very appealing</label>
+        <label><input type="radio" name="canvasAppeal" value="Somewhat appealing"> Somewhat appealing</label>
+        <label><input type="radio" name="canvasAppeal" value="Neutral"> Neutral</label>
+        <label><input type="radio" name="canvasAppeal" value="Not very appealing"> Not very appealing</label>
+        <label><input type="radio" name="canvasAppeal" value="Not at all appealing"> Not at all appealing</label>
+      </div>
+
+      <label>Which of the following features do you consider most important? <span class="small-note">(Select all that apply)</span></label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="features" value="Add notes/text"> Add notes/text</label>
+        <label><input type="checkbox" name="features" value="Add links/bookmarks"> Add links/bookmarks</label>
+        <label><input type="checkbox" name="features" value="Upload images/files"> Upload images/files</label>
+        <label><input type="checkbox" name="features" value="Hand-draw sketches/draw tool"> Hand-draw sketches/draw tool</label>
+        <label><input type="checkbox" name="features" value="Drag and resize items"> Drag and resize items freely</label>
+        <label><input type="checkbox" name="features" value="Tag or categorize items"> Tag or categorize items</label>
+        <label><input type="checkbox" name="features" value="Export to PDF"> Export to PDF</label>
+        <label><input type="checkbox" name="features" value="Use on mobile/tablet"> Use on mobile/tablet</label>
+      </div>
+
+      <label>Are there any other features you’d like to see that are *not* listed above?</label>
+      <textarea id="otherFeatures" name="otherFeatures" placeholder="Please describe…"></textarea>
+    </div>
+
+    <div class="section">
+      <h2>4. Use Frequency & Context</h2>
+      <label>How often would you use a tool like this?</label>
+      <select id="frequency" name="frequency">
+        <option value="">-- Please select --</option>
+        <option value="Daily">Daily</option>
+        <option value="Several times a week">Several times a week</option>
+        <option value="Weekly">Weekly</option>
+        <option value="Monthly">Monthly</option>
+        <option value="Occasionally (e.g. specific projects)">Occasionally (e.g. for specific projects)</option>
+      </select>
+
+      <label>In what context would you use it most (work, personal, mixed)?</label>
+      <select id="context" name="context">
+        <option value="">-- Please select --</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal / Lifestyle</option>
+        <option value="Mixed">Mixed (both work + personal)</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <h2>5. Final Thoughts</h2>
+      <label>Would you be willing to test an early version of this tool (beta) if invited?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="betaInterest" value="Yes"> Yes</label>
+        <label><input type="radio" name="betaInterest" value="Maybe"> Maybe</label>
+        <label><input type="radio" name="betaInterest" value="No"> No</label>
+      </div>
+
+      <label>Any additional comments, ideas or feedback?</label>
+      <textarea id="additionalFeedback" name="additionalFeedback" placeholder="Please share…"></textarea>
+    </div>
+
+    <button type="button" onclick="submitAndSave()">Submit & Save as PDF</button>
+
+  </form>
+
+  <script>
+    function submitAndSave() {
+      // Optionally, you could validate fields here.
+      // Trigger printing (save to PDF) – user can cancel if needed.
+      window.print();
+    }
+
+    // Prevent default form submission since we're using print.
+    document.getElementById('surveyForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>
